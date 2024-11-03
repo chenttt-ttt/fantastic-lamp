@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    double x, term =1.0, sum = 1.0;
+    int k = 1;
+    scanf("%lf",&x);
+    while(fabs(term) >= 0.00001){
+        term *= x / k;
+        sum += term;
+        k++;
+    }
+    printf("%.4f",sum);
+    return 0;
+}
