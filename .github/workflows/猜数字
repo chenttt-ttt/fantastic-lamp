@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int randomnum, maxguesstimes, guess, guesstimes = 0;
+    scanf("%d %d", &randomnum, &maxguesstimes);
+    while(1){
+        scanf("%d",&guess);
+        if(guess < 0){
+            printf("Game Over\n");
+            break;
+        }
+        guesstimes++;
+        if(guess == randomnum){
+            if(guesstimes == 1){
+                printf("Bingo!\n");
+            }else if(guesstimes <= 3){
+                printf("Lucky You!\n");
+            }else if(guesstimes <= maxguesstimes){
+                printf("Good Guess!\n");
+            }
+            break;
+        }else if(guess > randomnum){
+            printf("Too big\n");
+        }else{
+            printf("Too small\n");
+        }
+        if(guesstimes == maxguesstimes){
+            printf("Game Over\n");
+            break;
+        }
+    }
+    return 0;
+}
