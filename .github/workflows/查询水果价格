@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+    // 定义水果及其价格
+    const char *fruits[] = {"apple", "pear", "orange", "grape"};
+    double prices[] = {3.00, 2.50, 4.10, 10.20};
+    
+    // 显示菜单
+    printf("[1] %s\n", fruits[0]);
+    printf("[2] %s\n", fruits[1]);
+    printf("[3] %s\n", fruits[2]);
+    printf("[4] %s\n", fruits[3]);
+    printf("[0] exit\n");
+    
+    int query_count = 0;  // 查询计数
+    int num;
+
+    while (1) {
+        scanf("%d", &num);
+        
+        // 检查条件
+        if (num == 0) {
+            break;  // 用户选择退出
+        } else if (num >= 1 && num <= 4) {
+            // 有效的水果编号
+            printf("price = %.2f\n", prices[num - 1]);
+            query_count++;
+        } else {
+            // 无效编号
+            printf("price = 0.00\n");
+            query_count++;
+        }
+
+        // 检查查询次数
+        if (query_count >= 5) {
+            break;  // 超过5次查询，退出
+        }
+    }
+
+    return 0;
+}
